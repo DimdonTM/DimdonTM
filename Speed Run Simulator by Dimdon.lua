@@ -157,9 +157,9 @@ local args = {
 	end
 end)
 
-local Section4 = Tab:NewSection("AutoEquip/Unequip")
+local Section4 = Tab:NewSection("InfiniteEquip/Unequip (Only Jake/Astopiggy/Finn/BMO/Princess) ")
 
-Section4:NewButton("AutoEquip", "Script equiped all pets", function()
+Section4:NewButton("InfiniteEquip", "Script equiped all pets", function()
 	for i = 1, 5 do
 	local args = {
     	[1] = "Jake"
@@ -228,7 +228,7 @@ Section4:NewButton("AutoUnequip", "Script automatically unequip your pets!", fun
 	end
 end)
 
-local Section5 = Tab:NewSection("AutoUpgrade")
+local Section5 = Tab:NewSection("AutoUpgrade (Only Jake/Astopiggy/Finn/BMO/Princess) ")
 
 Section5:NewButton("AutoUpgrade (Last egg 13)", "Script automatically upgrade your pets!", function()
 	for i = 1,5 do
