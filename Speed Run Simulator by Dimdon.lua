@@ -31,850 +31,123 @@ Section2:NewButton("AutoRebirth", "The script does the rebirth for you", functio
 	end
 end)
 
-local Tab2 = Window:NewTab("FastEgg")
+local Tab2 = Window:NewTab("Egg")
 
-local Section3 = Tab2:NewSection("FastBuyEgg 10 eggs (click many times)")
+local Section3 = Tab2:NewSection("AutoBuyEgg")
 
-Section3:NewButton("AutoBuy 1 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggOne"
+Section3:NewSlider("What egg?", "Choose an egg from 1 to 13", 13, 1, function(s)
+    if s == 1 then
+		d = 'EggOne'
+	elseif s == 2 then
+		d = 'EggTwo'
+	elseif s == 3 then
+		d = 'EggThree'
+	elseif s == 4 then
+		d = 'EggFour'
+	elseif s == 5 then
+		d = 'EggFive'
+	elseif s == 6 then
+		d = 'EggSix'
+	elseif s == 7 then
+		d = 'EggSeven'
+	elseif s == 8 then
+		d = 'EggEight'
+	elseif s == 9 then
+		d = 'EggNine'
+	elseif s == 10 then
+		d = 'EggTen'
+	elseif s == 11 then
+		d = 'EggEleven'
+	elseif s == 12 then
+		d = 'EggTwelve'
+	elseif s == 13 then
+		d = 'EggThirteen'
+	end
+	end)
+
+
+Section3:NewToggle("AutoBuy Egg", "This script buys eggs very quickly", function(state)
+    if state then
+        _G.AutoBuy = true
+    else
+        _G.AutoBuy = false
+	end
+
+	if _G.AutoBuy == true then
+		while game:GetService("RunService").RenderStepped:wait() do
+	if _G.AutoBuy == false then
+		break end
+	local args = {
+    	[1] = d
 	}
 
 	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
+	print(d)
+	end
 	end
 end)
 
-Section3:NewButton("AutoBuy 2 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggTwo"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-Section3:NewButton("AutoBuy 3 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggThree"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-Section3:NewButton("AutoBuy 4 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggFour"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-Section3:NewButton("AutoBuy 5 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggFive"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-
-Section3:NewButton("AutoBuy 6 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggSix"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-
-Section3:NewButton("AutoBuy 7 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggSeven"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-Section3:NewButton("AutoBuy 8 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggEight"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-Section3:NewButton("AutoBuy 9 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggNine"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-Section3:NewButton("AutoBuy 10 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggTen"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-Section3:NewButton("AutoBuy 11 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggEleven"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-Section3:NewButton("AutoBuy 12 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggTwelve"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
-
-
-Section3:NewButton("AutoBuy 13 Egg", "This script buys eggs very quickly", function()
-	for i = 1, 10 do
-local args = {
-    [1] = "EggThirteen"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.CanBuyEgg:InvokeServer(unpack(args))
-	end
-end)
 
 local Tab3 = Window:NewTab("InfiniteEquip")
 
-local Section4 = Tab3:NewSection("InfiniteEquip/FastUnequip")
+local Section4 = Tab3:NewSection("InfiniteEquip")
 
-Section4:NewButton("InfiniteEquip (click many times) ", "The script equip infinite pets (CLICK MANY TIMES)", function()
-	for i = 1, 3 do
-	local args = {
-    	[1] = "Jake"
-	}
+Section4:NewToggle("InfiniteEquip", "The script equip infinite pets", function(state)
+    if state then
+        _G.InfiniteEquip = true
+    else
+        _G.InfiniteEquip = false
+    end
 
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-
-	local args = {
-    	[1] = "Astropiggy"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-
-	local args = {
-    	[1] = "Finn"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-
-	local args = {
-    	[1] = "BMO"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-
-	local args = {
-    	[1] = "Princess"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Scorpion"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Officer"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Horse"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Pig"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Cow"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Princess"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Cat"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Chicken"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Baby Chick"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Wizard"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Ice Bat"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Ice King"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Fire King"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Dragon"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Fire Bunny"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Soldier"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Skeleton"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Detective"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Professor"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Giraffe"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Gnome"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Astronaut"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Peppermint"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Cupid"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Cloud"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Vampire"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Piggy"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Phoenix"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Santa"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Mummy"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Ninja"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Troll"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Piggy Alien"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Astropiggy"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Alien"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Cookie"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Gummy Bear"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Marshmallow"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Pegasus"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Pharaoh"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
+	if _G.InfiniteEquip == true then
+		while wait() do
+	if _G.InfiniteEquip == false then
+		break end
+		    for _,v in pairs(game.Players.LocalPlayer.PlayerGui.MainUI.PetUI.SelectionPanel.ScrollingFrame:GetDescendants()) do
+			local args = {
+   				[1] = v.Name
+			}
+			game:GetService("ReplicatedStorage").Remotes.PetEquip:FireServer(unpack(args))
+			wait(0.0001)
+			end
+		end
 	end
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(7000, -300, -415, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 end)
 
-Section4:NewButton("FastUnequip (click many times)", "Script quickly unequip your pets!", function()
-	for i = 1,3 do
-
-	local args = {
-    	[1] = "Jake"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	
-	local args = {
-    	[1] = "Princess"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	
-	local args = {
-    	[1] = "BMO"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	
-	local args = {
-    	[1] = "Finn"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-
-	local args = {
-    	[1] = "Scorpion"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Officer"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Horse"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Pig"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Cow"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Princess"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Cat"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Chicken"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Baby Chick"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Wizard"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Ice Bat"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Ice King"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Fire King"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Dragon"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Fire Bunny"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Soldier"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Skeleton"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Detective"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Professor"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Giraffe"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Gnome"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Astronaut"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Peppermint"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Cupid"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Cloud"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Vampire"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Piggy"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Phoenix"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Santa"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Mummy"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Ninja"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Troll"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Piggy Alien"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Astropiggy"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Alien"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Cookie"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Gummy Bear"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Marshmallow"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Pegasus"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
-	wait(1)
-	
-	local args = {
-    	[1] = "Pharaoh"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
+Section4:NewToggle("FastUnequip", "Script quickly unequip your pets!", function(state)
+	if state then
+		_G.FastUnequip = true
+	else
+		_G.FastUnequip = false
 	end
+
+	if _G.FastUnequip == true then
+		while wait() do
+	if _G.FastUnequip == false then
+		break end
+		    for _,m in pairs(game.Players.LocalPlayer.PlayerGui.MainUI.PetUI.SelectionPanel.ScrollingFrame:GetDescendants()) do
+			local args = {
+   				[1] = m.Name
+			}
+
+			game:GetService("ReplicatedStorage").Remotes.PetUnequip:FireServer(unpack(args))
+			wait(0.0001)
+			end
+		end
+	end
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(7000, -300, -415, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 end)
 
 local Section5 = Tab:NewSection("FastUpgrade")
 
-Section5:NewButton("FastUpgrade (Only last egg 13)", "Script automatically upgrade your pets!", function()
-	for i = 1,5 do
-			
+Section5:NewButton("FastUpgrade", "Script automatically upgrade your pets!", function()
+		for i,v in pairs(game:GetDescendants()) do	
 	local args = {
-    	[1] = "Finn"
+    	[1] = v.Name
 	}
 
 	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-						
-	local args = {
-    	[1] = "FinnG"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-						
-	local args = {
-    	[1] = "FinnD"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-								
-	local args = {
-    	[1] = "BMO"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-									
-	local args = {
-    	[1] = "BMOG"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-									
-	local args = {
-    	[1] = "BMOD"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-									
-	local args = {
-    	[1] = "Princess"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-										
-	local args = {
-    	[1] = "PrincessG"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-										
-	local args = {
-    	[1] = "PrincessD"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-											
-	local args = {
-    	[1] = "Jake"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-												
-	local args = {
-    	[1] = "JakeG"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-												
-	local args = {
-    	[1] = "JakeD"
-	}
-
-	game:GetService("ReplicatedStorage").Remotes.UpgradePet:FireServer(unpack(args))
-
 	end
-
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(7000, -300, -415, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 end)
