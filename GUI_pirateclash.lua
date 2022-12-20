@@ -75,7 +75,7 @@ end)
 
 end)
 
-local Tab2 = Window:NewTab("Misc")
+local Tab2 = Window:NewTab("Guns")
 
 local Section3 = Tab2:NewSection("No Reload")
 
