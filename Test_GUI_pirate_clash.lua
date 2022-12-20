@@ -162,24 +162,3 @@ Section3:NewToggle("Repeater", "This script, no reload gun", function(Repeater)
 	end
 	end
 end)
-
-Section3:NewToggle("Repeater", "This script, no reload gun", function(Repeater)
- 	if Repeater then
-        _G.Repeater = true
-    else
-        _G.Repeater = false
-	end
-
-	if _G.Repeater == true then
-		while game:GetService("RunService").RenderStepped:wait() do
-	if _G.Repeater == false then
-		break end
-	local args = {
-    	[1] = "Repeater"
-	}
-
-	game:GetService("ReplicatedStorage").Events.ReloadWeapon:FireServer(unpack(args))
-
-	end
-	end
-end)
