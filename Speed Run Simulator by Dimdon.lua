@@ -13,7 +13,7 @@ Section:NewButton("FastCollectOrbs (Need a strong computer)", "Уou collect all 
 	end
 	end
 end)
-
+ 
 Section:NewButton("SlowCollectOrbs (Weak computer) ", "Уou collect all the orbs on the server", function()
     for i,v in pairs(game:GetDescendants()) do
 	if v.Name == 'Orb' then
