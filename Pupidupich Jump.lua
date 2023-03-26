@@ -12,7 +12,7 @@ Section:NewToggle("Auto lvl", "Fast passing of parkour", function(state)
     else
         _G.Fast = false
 	end
-
+ 
 	if _G.Fast == true then
 		game:service'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(14, 6, 0, -1, 0, 0, 0, 1, 0, 0, 0, -1)
 		wait(1)
