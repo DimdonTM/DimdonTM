@@ -6,7 +6,7 @@ local Window = Library.CreateLib("Pirate Clash", "RJTheme3")
 local Tab = Window:NewTab("Main")
 
 local Section = Tab:NewSection("Hitbox")
-
+ 
 
 Section:NewSlider("Hitbox size", "Choose hitbox size", 100, 1, function(s)
 	d = s
