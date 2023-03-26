@@ -51,7 +51,7 @@ HoldingControl = false
 end
 end
 end)
-
+ 
 end)
 
 Section:NewButton("Equip weapon (Alien Ray Gun)", "You equip more 10k weapon", function()
