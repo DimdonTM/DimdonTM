@@ -1,7 +1,7 @@
 game:GetService("StarterGui"):SetCore("SendNotification", {Title = "World Defenders GUI", Text = "by Dimdon"})
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
-
-local Window = Library.CreateLib("World Defenders by Dimdon", "RJTheme3")
+                                                                                                                                                                                                                 
+local Window = Library.CreateLib("World Defenders by Dimdon :3", "RJTheme3")
 
 local Tab = Window:NewTab("Main")
 
@@ -51,10 +51,10 @@ HoldingControl = false
 end
 end
 end)
- 
+
 end)
 
-Section:NewButton("Equip weapon (Alien Ray Gun)", "You equip more 10k weapon", function()
+Section:NewButton("Equip weapon", "You equip more 10k weapon", function()
 local args = {
     [1] = "Alien Ray Gun",
     [2] = false
@@ -63,12 +63,40 @@ local args = {
 game:GetService("ReplicatedStorage").RemoteFunctions.WeaponEquipRequest:InvokeServer(unpack(args))
 end)
 
+Section:NewButton("Unequip weapon", "Unequip, if you flying", function()
+local args = {
+    [1] = "Alien Ray Gun",
+    [2] = true
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.WeaponUnequipRequest:InvokeServer(unpack(args))
+
+end)
+
 Section:NewButton("Delete Recoil", "Delete your recoil weapon",function()
 for i,v in pairs(game.Workspace.Dimdonpro2:GetDescendants()) do
 if v.Name == "Alien Ray Gun" then
 v.Configuration.RecoilMax:Destroy()
 v.Configuration.RecoilMin:Destroy()
 end
+end
+end)
+
+Section:NewToggle("Pause Glitch", "Pause/Unpause game", function(state)
+    if state then
+        _G.paus= true
+    else
+        _G.paus = false
+	end
+
+	if _G.paus == true then
+		while game:GetService("RunService").RenderStepped:wait() do
+	if _G.paus== false then
+		break end
+	game:GetService("ReplicatedStorage").SharedModules.Knit.Services.GamePauseService.RF.pause:InvokeServer()
+
+	game:GetService("ReplicatedStorage").SharedModules.Knit.Services.GamePauseService.RF.unpause:InvokeServer()
+	end
 end
 end)
 
