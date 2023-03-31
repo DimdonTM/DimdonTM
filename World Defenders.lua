@@ -5,7 +5,13 @@ local Window = Library.CreateLib("World Defenders by Dimdon :3", "RJTheme3")
 
 local Tab = Window:NewTab("Main")
 
-local Section = Tab:NewSection("Function")
+local Tab1 = Window:NewTab("Others")
+
+local Section = Tab:NewSection("Spawn")
+
+local Section2 = Tab:NewSection("Weapon")
+
+local Section3 = Tab1:NewSection("Others")
 
 Section:NewTextBox("Name tower: ", "Enter the name of the tower", function(txt)
 d = txt
@@ -54,7 +60,7 @@ end)
 
 end)
 
-Section:NewButton("Equip weapon", "You equip more 10k weapon", function()
+Section2:NewButton("Equip weapon", "You equip more 10k weapon", function()
 local args = {
     [1] = "Alien Ray Gun",
     [2] = false
@@ -63,26 +69,34 @@ local args = {
 game:GetService("ReplicatedStorage").RemoteFunctions.WeaponEquipRequest:InvokeServer(unpack(args))
 end)
 
-Section:NewButton("Unequip weapon", "Unequip, if you flying", function()
-local args = {
-    [1] = "Alien Ray Gun",
-    [2] = true
-}
 
-game:GetService("ReplicatedStorage").RemoteFunctions.WeaponUnequipRequest:InvokeServer(unpack(args))
-
-end)
-
-Section:NewButton("Delete Recoil", "Delete your recoil weapon",function()
+Section2:NewButton("Delete Recoil", "Delete your recoil weapon",function()
 for i,v in pairs(game.Workspace.Dimdonpro2:GetDescendants()) do
 if v.Name == "Alien Ray Gun" then
+v.Configuration.MaxSpread:Destroy()
 v.Configuration.RecoilMax:Destroy()
 v.Configuration.RecoilMin:Destroy()
+v.Configuration.TotalRecoilMax:Destroy()
+v.Model.AnimationController:Destroy()
+v.Model.Barrel_Neon:Destroy()
+v.Model.Gun_Neon:Destroy()
+v.Model.Ring_Neon:Destroy()
+v.Model.Gun:Destroy()
+v.Model.MasterPart.HandleAttachment:Destroy()
+print(1)
 end
 end
 end)
 
-Section:NewToggle("Pause Glitch", "Pause/Unpause game", function(state)
+Section2:NewButton("Upgrade Weapon", "Upgrading your weapong",function()
+local args = {
+    [1] = "Alien Ray Gun"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunctions.WeaponUpgradeRequest:InvokeServer(unpack(args))
+end)
+
+Section3:NewToggle("Pause Glitch", "Pause/Unpause game", function(state)
     if state then
         _G.paus= true
     else
@@ -101,7 +115,7 @@ end
 end)
 
 
-Section:NewToggle("Tp to monster", "Teleport", function(state)
+Section3:NewToggle("Tp to monster", "Teleport", function(state)
     if state then
         _G.farm = true
     else
