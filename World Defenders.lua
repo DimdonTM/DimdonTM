@@ -114,8 +114,11 @@ Section3:NewToggle("Pause Glitch", "Pause/Unpause game", function(state)
 end
 end)
 
+Section3:NewSlider("Size Hitbox", "Choose", 100, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
+    HeadSize = s
+end)
 
-Section3:NewToggle("Tp to monster", "Teleport", function(state)
+Section3:NewToggle("Big heads", "Hiboxs", function(state)
     if state then
         _G.farm = true
     else
@@ -127,9 +130,8 @@ Section3:NewToggle("Tp to monster", "Teleport", function(state)
 	if _G.farm == false then
 		break end
 	for i,v in pairs(game.Workspace.Zombies:GetDescendants()) do
-	if v.Name == 'Target' then
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position)
-	wait(0.1)
+	if v.Name == 'FakeHead' and v.ClassName == 'MeshPart' then
+	v.Size = Vector3.new(HeadSize, HeadSize, HeadSize)
 	end
 	end
 	end
