@@ -13,6 +13,7 @@ local Section2 = Tab:NewSection("Weapon")
 
 local Section3 = Tab1:NewSection("Others")
 
+local Section4 = Tab1:NewSection("Autofarm [TEST]")
 Section:NewTextBox("Name tower: ", "Enter the name of the tower", function(txt)
 d = txt
 end)
@@ -136,4 +137,80 @@ Section3:NewToggle("Big heads", "Hiboxs", function(state)
 	end
 	end
 	end
+end)
+
+Section4:NewButton("Galactic Gateway Nightmare", "Farm", function()
+for g = 1,10000 do
+args = {
+    [1] = "Cyclops",
+    [2] = Vector3.new(35, 197, -72)
+}
+
+game:GetService("ReplicatedStorage").SharedModules.Knit.Services.TowerSpawnService.RF.deploy:InvokeServer(unpack(args))
+wait(1)
+args = {
+    [1] = "Cyclops",
+    [2] = Vector3.new(70, 197, -74)
+}
+
+game:GetService("ReplicatedStorage").SharedModules.Knit.Services.TowerSpawnService.RF.deploy:InvokeServer(unpack(args))
+wait(1)
+args = {
+    [1] = "Cyclops",
+    [2] = Vector3.new(112, 197, -108)
+}
+
+game:GetService("ReplicatedStorage").SharedModules.Knit.Services.TowerSpawnService.RF.deploy:InvokeServer(unpack(args))
+wait(50)
+args = {
+    [1] = "Cyclops",
+    [2] = Vector3.new(153, 197, -125)
+}
+
+game:GetService("ReplicatedStorage").SharedModules.Knit.Services.TowerSpawnService.RF.deploy:InvokeServer(unpack(args))
+wait(1)
+args = {
+    [1] = "Cyclops",
+    [2] = Vector3.new(153, 197, -125)
+}
+
+game:GetService("ReplicatedStorage").SharedModules.Knit.Services.TowerSpawnService.RF.deploy:InvokeServer(unpack(args))
+wait(1)
+args = {
+    [1] = "Cyclops",
+    [2] = Vector3.new(-10, 197, -71)
+}
+
+game:GetService("ReplicatedStorage").SharedModules.Knit.Services.TowerSpawnService.RF.deploy:InvokeServer(unpack(args))
+wait(5)
+for d = 1,40 do
+print(d)
+wait(5)
+	for i,v in pairs(game.Workspace.Towers:GetDescendants()) do
+		if v.ClassName == "Model" and v.PrimaryPart ~= HumanoidRootPart and v.Name ~= 'FrozenIce' then
+		local args = {
+    		[1] = v.Name
+		}
+
+		game:GetService("ReplicatedStorage").SharedModules.Knit.Services.TowerSpawnService.RF.upgrade:InvokeServer(unpack(args))
+		wait(1)
+	end
+end
+end
+wait(5)
+game:GetService("ReplicatedStorage").SharedModules.Knit.Services.GameOverOptionsService.RF.voteAgain:InvokeServer()
+wait(2)
+local args = {
+    [1] = "GalacticGateway"
+}
+
+game:GetService("ReplicatedStorage").SharedModules.Knit.Services.VotingService.RE.Vote:FireServer(unpack(args))
+wait(5)
+local args = {
+    [1] = 3
+}
+
+game:GetService("ReplicatedStorage").SharedModules.Knit.Services.VotingService.RE.Vote:FireServer(unpack(args))
+wait(2)
+end
 end)
