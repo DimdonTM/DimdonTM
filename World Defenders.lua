@@ -63,7 +63,7 @@ end)
 
 Section2:NewButton("Equip weapon", "You equip more 10k weapon", function()
 local args = {
-    [1] = "Alien Ray Gun",
+    [1] = "Money Gun",
     [2] = false
 }
 
@@ -73,17 +73,11 @@ end)
 
 Section2:NewButton("Delete Recoil", "Delete your recoil weapon",function()
 for i,v in pairs(game.Workspace.Dimdonpro2:GetDescendants()) do
-if v.Name == "Alien Ray Gun" then
+if v.Name == "Money Gun" then
 v.Configuration.MaxSpread:Destroy()
 v.Configuration.RecoilMax:Destroy()
 v.Configuration.RecoilMin:Destroy()
 v.Configuration.TotalRecoilMax:Destroy()
-v.Model.AnimationController:Destroy()
-v.Model.Barrel_Neon:Destroy()
-v.Model.Gun_Neon:Destroy()
-v.Model.Ring_Neon:Destroy()
-v.Model.Gun:Destroy()
-v.Model.MasterPart.HandleAttachment:Destroy()
 print(1)
 end
 end
@@ -91,7 +85,7 @@ end)
 
 Section2:NewButton("Upgrade Weapon", "Upgrading your weapong",function()
 local args = {
-    [1] = "Alien Ray Gun"
+    [1] = "Money Gun"
 }
 
 game:GetService("ReplicatedStorage").RemoteFunctions.WeaponUpgradeRequest:InvokeServer(unpack(args))
@@ -109,15 +103,29 @@ Section3:NewToggle("Pause Glitch", "Pause/Unpause game", function(state)
 	if _G.paus== false then
 		break end
 	game:GetService("ReplicatedStorage").SharedModules.Knit.Services.GamePauseService.RF.pause:InvokeServer()
-
+	wait(5)
 	game:GetService("ReplicatedStorage").SharedModules.Knit.Services.GamePauseService.RF.unpause:InvokeServer()
 	end
 end
 end)
 
+
+pauses = false
+Section3:NewButton("Pause LOBBY", "Pause/Unpause LOBBY", function()
+if pauses then
+game:GetService("ReplicatedStorage").SharedModules.Knit.Services.GamePauseService.RF.unpause:InvokeServer()
+pauses = false
+else
+	game:GetService("ReplicatedStorage").SharedModules.Knit.Services.GamePauseService.RF.pause:InvokeServer()
+	pauses = true
+end
+end)
+
+
 Section3:NewSlider("Size Hitbox", "Choose", 100, 0, function(s) -- 500 (Макс. значение) | 0 (Мин. значение)
     HeadSize = s
 end)
+
 
 Section3:NewToggle("Big heads", "Hiboxs", function(state)
     if state then
